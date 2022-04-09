@@ -1,5 +1,6 @@
 import Card from "../components/Card";
 import { v4 as uuid } from 'uuid';
+import React from "react";
 
 
 function Products() {
@@ -17,9 +18,9 @@ function Products() {
 
     return (
         <div className="product-list">
-            {products.map((product) => (
-                <Card name={product.name} price={product.price} key={product.key}/>
-            ))}
+            {React.Children.toArray(products.map((product) => (
+                <Card name={product.name} price={product.price} />
+            )))}
         </div>
     );
 }
